@@ -24,6 +24,16 @@ public class DaoServices {
 		return repository.findOne(id);
 	}
 
+	public User getUserByEmailAndPassword(String email,String password){
+		ArrayList<User> allUsers = getAllUsers();
+		for (User user: allUsers) {
+			if (user.getEmail().equals(email) && user.getPassword().equals(password)){
+				return user;
+			}
+		}
+		return null;
+	}
+
 	public User addUser(User user) {
 		return repository.save(user);
 	}

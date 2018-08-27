@@ -173,8 +173,8 @@
                     <div class="sign-in-htm">
                         <form action="/checkLogin" method="post">
                             <div class="group">
-                                <label for="user" class="label">Username</label>
-                                <input id="user" name="name" type="text" class="input" required>
+                                <label for="user" class="label">E-Mail</label>
+                                <input id="user" name="email" type="email" class="input" required>
                             </div>
                             <div class="group">
                                 <label for="pass" class="label">Password</label>

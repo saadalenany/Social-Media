@@ -31,6 +31,9 @@ public class User {
     @Null
     private Blob image;
 
+    public User() {
+    }
+
     public User(String name, String email, String password, String title) {
         this.name = name;
         this.email = email;
