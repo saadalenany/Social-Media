@@ -1,10 +1,20 @@
 <html>
     <head>
+        <title>Login to Enter!</title>
+        <script src="js/location.js"></script>
+        <script src="js/materialize.js"></script>
+        <link rel="stylesheet" href="css/materialize.css">
+        <link rel="stylesheet" href="css/w3.css">
         <style>
             body{
+                font-family: "Comic Sans MS", cursive, sans-serif;
+                display: -webkit-flex; /* Safari */
+                -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+                display: flex;
+                flex-wrap: wrap;
+                height:auto;
                 margin:0;
                 color:#6a6f8c;
-                background: rgb(57,177,99);
                 background: linear-gradient(90deg, rgba(57,177,99,1) 11%, rgba(13,119,156,1) 48%, rgba(0,212,255,1) 100%);
             }
             *,:after,:before{box-sizing:border-box}
@@ -20,19 +30,16 @@
             }
             .login-wrap{
                 width:100%;
-                height:100%;
                 margin:auto;
                 position:relative;
                 box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
             }
             .login-html{
                 width:30%;
-                height:100%;
                 margin-left: 35%;
                 margin-right: 35%;
                 position:absolute;
                 padding:90px 70px 50px 70px;
-                background:rgba(40,57,101,.9);
             }
             .login-html .sign-in-htm,
             .login-html .sign-up-htm{
@@ -99,7 +106,7 @@
                 -webkit-text-security:circle;
             }
             .login-form .group .label{
-                color:#aaa;
+                color:#063372;
                 font-size:12px;
             }
             .login-form .group .button{
@@ -162,23 +169,29 @@
                 cursor: hand;
                 text-align:center;
             }
+            select option {
+                margin: 40px;
+                background: rgba(0, 0, 0, 0.3);
+                color: #fff;
+                text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+            }
         </style>
     </head>
-    <body>
-        <div class="login-wrap" id="particles-js">
+    <body id="particles-js">
+        <div class="login-wrap">
             <div class="login-html">
                 <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
                 <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
                 <div class="login-form">
                     <div class="sign-in-htm">
                         <form action="/checkLogin" method="post">
-                            <div class="group">
+                            <div class="input-field col s6">
                                 <label for="user" class="label">E-Mail</label>
-                                <input id="user" name="email" type="email" class="input" required>
+                                <input style="color:#fff" id="user" name="email" type="email" class="input" required>
                             </div>
-                            <div class="group">
+                            <div class="input-field col s6">
                                 <label for="pass" class="label">Password</label>
-                                <input id="pass" name="pass" type="password" class="input" data-type="password" required>
+                                <input style="color:#fff" id="pass" name="pass" type="password" class="input" data-type="password" required>
                             </div>
                             <div class="group">
                                 <input id="check" name="checked" type="checkbox" class="check" checked>
@@ -195,21 +208,43 @@
                     </div>
                     <div class="sign-up-htm">
                         <form action="/checkSignUp" method="post">
-                            <div class="group">
-                                <label for="user" class="label">Username</label>
-                                <input id="user" name="name" type="text" class="input" required>
+                            <div class="input-field col s6">
+                                <label for="name" class="label">Username</label>
+                                <input style="color:#fff" id="name" name="name" type="text" class="validate" required>
                             </div>
-                            <div class="group">
+                            <div class="input-field col s6">
                                 <label for="pass" class="label">Password</label>
-                                <input id="pass" name="pass" type="password" class="input" data-type="password" required>
+                                <input style="color:#fff" id="pass" name="pass" type="password" class="validate" data-type="password" required>
                             </div>
-                            <div class="group">
+                            <div class="input-field col s6">
                                 <label for="title" class="label">Title</label>
-                                <input id="title" name="title" type="text" class="input" required>
+                                <input style="color:#fff" id="title" name="title" type="text" class="validate" required>
+                            </div>
+                            <div class="input-field col s6">
+                                <label for="email" class="label">Email Address</label>
+                                <input style="color:#fff" id="email" name="email" type="text" class="validate" required>
+                            </div>
+                            <div class="input-field col s6">
+                                <label for="phone" class="label">Phone</label>
+                                <input style="color:#fff" id="phone" name="phone" type="tel" class="validate" required>
                             </div>
                             <div class="group">
-                                <label for="email" class="label">Email Address</label>
-                                <input id="email" name="email" type="text" class="input" required>
+                                <label class="label">Location</label><br>
+                                <select style="display: block;color:#ffffff;background-color:#abcdef22;border-color:#abcdef22;" onchange="set_country(this,country,city_state)" size="1" name="region">
+                                    <option value="" disabled selected>SELECT REGION</option>
+                                    <script type="text/javascript">
+                                        setRegions(this);
+                                    </script>
+                                </select><br>
+                                <select style="display: block;color:#ffffff;background-color:#abcdef22;border-color:#abcdef22;" name="country" size="1" disabled="disabled" onchange="set_city_state(this,city_state)">
+                                </select><br>
+                                <select style="display: block;color:#ffffff;background-color:#abcdef22;border-color:#abcdef22;" name="city_state" size="1" disabled="disabled" onchange="print_city_state(country,this)">
+                                </select>
+                                <input type="hidden" name="region" id="txtregion"></input>
+                                <input type="hidden" name="place" id="txtplacename"></input>
+                            </div>
+                            <div class="input-field col s6">
+                                <input style="color:#fff" id="date" name="date" type="date" class="validate" required>
                             </div>
                             <div class="group">
                                 <input type="submit" class="button" value="Sign Up">

@@ -23,39 +23,53 @@ public class User {
     @NotNull
     private String password;
     @NotNull
+    private String phone;
+    @NotNull
     private String title;
-    @Null
+    @NotNull
     private String location;
-    @Null
-    private Date date;
-    @Null
+    @NotNull
+    private String date;
     private Blob image;
 
     public User() {
     }
 
-    public User(String name, String email, String password, String title) {
+    public User(String name, String email, String password, String phone, String title) {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.phone = phone;
         this.title = title;
     }
 
-    public User(int id, String name, String email, String password, String title, String location, Date date, Blob image) {
-        this.id = id;
+    public User(String name, String email, String password, String phone, String title, String location, String date) {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.phone = phone;
+        this.title = title;
+        this.location = location;
+        this.date = date;
+    }
+
+    public User(String name, String email, String password, String phone, String title, String location, String date, Blob image) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
         this.title = title;
         this.location = location;
         this.date = date;
         this.image = image;
     }
 
-    public User(String name, String email, String password, String title, String location, Date date, Blob image) {
+    public User(int id, String name, String email, String password, String phone, String title, String location, String date, Blob image) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
+        this.phone = phone;
         this.title = title;
         this.location = location;
         this.date = date;
@@ -94,6 +108,14 @@ public class User {
         this.password = password;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -110,11 +132,11 @@ public class User {
         this.location = location;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -133,6 +155,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
                 ", title='" + title + '\'' +
                 ", location='" + location + '\'' +
                 ", date=" + date +

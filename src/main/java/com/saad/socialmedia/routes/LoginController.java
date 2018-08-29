@@ -46,9 +46,13 @@ public class LoginController {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String pass = request.getParameter("pass");
+        String phone = request.getParameter("phone");
         String title = request.getParameter("title");
 
-        User user = new User(name,email,pass,title);
+        String location = request.getParameter("region")+", "+request.getParameter("place");
+        String date = request.getParameter("date");
+
+        User user = new User(name,email,pass,phone,title,location,date);
 
         user = services.addUser(user);
 

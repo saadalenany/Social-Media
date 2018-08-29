@@ -13,8 +13,8 @@
                  <p class="w3-center"><img src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
                  <hr>
                  <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i>${user.getTitle()}</p>
-                 <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> London, UK</p>
-                 <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> April 1, 1988</p>
+                 <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>${user.getLocation()}</p>
+                 <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i>${user.getDate()}</p>
                 </div>
               </div>
               <br>

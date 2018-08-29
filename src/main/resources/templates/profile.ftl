@@ -15,14 +15,15 @@
             <div class="w3-display-container" style="width:50%;margin-left: 25%;margin-right: 25%;position:relative;margin-top:10px;">
               <img src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png" style="height:160px;width:160px;margin-top:5px;" alt="Avatar">
               <div class="w3-display-bottomleft w3-container w3-text-black">
-                <h2>Jane Doe</h2>
+                <h2>${user.getName()}</h2>
               </div>
+              <a href="/update" class="w3 fa fa-edit" style="float:right;"></a>
             </div>
             <div class="w3-container">
-              <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Designer</p>
-              <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>London, UK</p>
-              <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>ex@mail.com</p>
-              <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>1224435534</p>
+              <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>${user.getTitle()}</p>
+              <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>${user.getLocation()}</p>
+              <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>${user.getEmail()}</p>
+              <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>${user.getPhone()}</p>
               <hr>
 
               <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
